@@ -15,3 +15,11 @@ function newVoteSubscribe(parent, args, context, info) {
 export const newVote = {
     subscribe: newVoteSubscribe
 };
+
+function questionSubscribe(root, args, context, info) {
+    return context.prisma.subscription.question({}, info);
+}
+
+export const questionSub = {
+    subscribe: questionSubscribe
+};

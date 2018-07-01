@@ -17,4 +17,14 @@ function link(root, args, context, info) {
     }, info);
 }
 exports.link = link;
+function questions(root, args, context, info) {
+    return context.prisma.query.questions({}, info);
+}
+exports.questions = questions;
+function question(root, args, context, info) {
+    return context.prisma.query.question({
+        where: { id: args.id }
+    }, info);
+}
+exports.question = question;
 //# sourceMappingURL=Query.js.map

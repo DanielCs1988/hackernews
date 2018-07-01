@@ -20,3 +20,11 @@ type Vote {
     link: Link!
     user: User!
 }
+
+type Question {
+    id: ID! @unique
+    title: String!
+    text: String!
+    createdAt: DateTime!
+    user: User!
+}

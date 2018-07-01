@@ -83,4 +83,31 @@ function deleteLink(parent, args, context, info) {
     }, info);
 }
 exports.deleteLink = deleteLink;
+function askQuestion(root, args, context, info) {
+    const userId = utils_1.getUserId(context);
+    return context.prisma.mutation.createQuestion({
+        data: {
+            title: args.title,
+            text: args.text,
+            user: { connect: { id: userId } }
+        }
+    }, info);
+}
+exports.askQuestion = askQuestion;
+function updateQuestion(root, args, context, info) {
+    return context.prisma.mutation.updateQuestion({
+        where: { id: args.id },
+        data: {
+            title: args.title,
+            text: args.text
+        }
+    }, info);
+}
+exports.updateQuestion = updateQuestion;
+function deleteQuestion(root, args, context, info) {
+    return context.prisma.mutation.deleteQuestion({
+        where: { id: args.id }
+    }, info);
+}
+exports.deleteQuestion = deleteQuestion;
 //# sourceMappingURL=Mutation.js.map

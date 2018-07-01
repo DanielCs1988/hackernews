@@ -67,3 +67,30 @@ export function deleteLink(parent, args, context, info) {
         where: {id: args.id}
     }, info);
 }
+
+export function askQuestion(root, args, context, info) {
+    const userId = getUserId(context);
+    return context.prisma.mutation.createQuestion({
+        data: {
+            title: args.title,
+            text: args.text,
+            user: {connect: {id: userId}}
+        }
+    }, info);
+}
+
+export function updateQuestion(root, args, context, info) {
+    return context.prisma.mutation.updateQuestion({
+        where: {id: args.id},
+        data: {
+            title: args.title,
+            text: args.text
+        }
+    }, info);
+}
+
+export function deleteQuestion(root, args, context, info) {
+    return context.prisma.mutation.deleteQuestion({
+        where: {id: args.id}
+    }, info);
+}

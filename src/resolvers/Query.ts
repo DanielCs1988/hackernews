@@ -14,3 +14,13 @@ export function link(root, args, context, info) {
         where: {id: args.id}
     }, info);
 }
+
+export function questions(root, args, context, info) {
+    return context.prisma.query.questions({}, info);
+}
+
+export function question(root, args, context, info) {
+    return context.prisma.query.question({
+        where: {id: args.id}
+    }, info);
+}
