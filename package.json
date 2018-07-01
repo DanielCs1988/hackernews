@@ -1,0 +1,20 @@
+{
+  "name": "hackernews-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Me",
+  "license": "MIT",
+  "dependencies": {
+    "@types/bcryptjs": "^2.4.1",
+    "@types/jsonwebtoken": "^7.2.7",
+    "bcryptjs": "^2.4.3",
+    "graphql-yoga": "^1.14.10",
+    "jsonwebtoken": "^8.3.0",
+    "prisma-binding": "^2.1.0"
+  }
+}
