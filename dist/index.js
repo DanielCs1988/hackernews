@@ -4,10 +4,12 @@ const graphql_yoga_1 = require("graphql-yoga");
 const prisma_binding_1 = require("prisma-binding");
 const Query = require("./resolvers/Query");
 const Mutation = require("./resolvers/Mutation");
+const Subscription = require("./resolvers/Subscription");
 const AuthPayload = require("./resolvers/AuthPayload");
 const resolvers = {
     Query,
     Mutation,
+    Subscription,
     AuthPayload
 };
 const prisma = new prisma_binding_1.Prisma({

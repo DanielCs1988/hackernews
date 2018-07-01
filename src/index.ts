@@ -2,11 +2,13 @@ import {GraphQLServer} from "graphql-yoga";
 import {Prisma} from "prisma-binding";
 import * as Query from "./resolvers/Query";
 import * as Mutation from "./resolvers/Mutation";
+import * as Subscription from "./resolvers/Subscription";
 import * as AuthPayload from "./resolvers/AuthPayload";
 
 const resolvers = {
     Query,
     Mutation,
+    Subscription,
     AuthPayload
 };
 

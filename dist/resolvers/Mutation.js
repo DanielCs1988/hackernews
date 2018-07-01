@@ -48,4 +48,23 @@ function post(parent, args, context, info) {
     }, info);
 }
 exports.post = post;
+function vote(parent, args, context, info) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const userId = utils_1.getUserId(context);
+        const linkExists = yield context.prisma.exists.Vote({
+            user: { id: userId },
+            link: { id: args.linkId }
+        });
+        if (linkExists) {
+            throw new Error(`Already voted for link: ${args.linkId}`);
+        }
+        return context.prisma.mutation.createVote({
+            data: {
+                user: { connect: { id: userId } },
+                link: { connect: { id: args.linkId } }
+            }
+        }, info);
+    });
+}
+exports.vote = vote;
 //# sourceMappingURL=Mutation.js.map
