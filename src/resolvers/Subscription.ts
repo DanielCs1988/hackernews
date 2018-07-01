@@ -1,11 +1,9 @@
-function newLinkSubscribe(parent, args, context, info) {
-    return context.prisma.subscription.link({
-        where: { mutation_in: ['CREATED'] }
-    }, info);
+function linkSubscribe(parent, args, context, info) {
+    return context.prisma.subscription.link({}, info);
 }
 
-export const newLink = {
-    subscribe: newLinkSubscribe
+export const linkSub = {
+    subscribe: linkSubscribe
 };
 
 function newVoteSubscribe(parent, args, context, info) {

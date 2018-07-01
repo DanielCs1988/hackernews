@@ -67,4 +67,20 @@ function vote(parent, args, context, info) {
     });
 }
 exports.vote = vote;
+function updateLink(parent, args, context, info) {
+    return context.prisma.mutation.updateLink({
+        where: { id: args.id },
+        data: {
+            url: args.url,
+            description: args.description
+        }
+    }, info);
+}
+exports.updateLink = updateLink;
+function deleteLink(parent, args, context, info) {
+    return context.prisma.mutation.deleteLink({
+        where: { id: args.id }
+    }, info);
+}
+exports.deleteLink = deleteLink;
 //# sourceMappingURL=Mutation.js.map
